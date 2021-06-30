@@ -1,0 +1,10 @@
+@startuml
+class net.sourceforge.plantuml.xmi.XmiClassDiagramStar {
+- void addLink(Link)
+- void addExtension(Link,String)
+}
+
+
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiClassDiagramStar
+net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract <|-- net.sourceforge.plantuml.xmi.XmiClassDiagramStar
+@enduml

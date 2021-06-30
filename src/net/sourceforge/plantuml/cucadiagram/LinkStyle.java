@@ -107,7 +107,9 @@ public class LinkStyle {
 		}
 		return new UStroke(nonZeroThickness());
 	}
-
+	public boolean isDashed() {
+		return type == Type.DASHED;
+	}
 	public UStroke muteStroke(UStroke stroke) {
 		if (type == Type.DASHED || type == Type.DOTTED || type == Type.BOLD) {
 			return getStroke3();

@@ -115,6 +115,10 @@ public class XmiClassDiagramStar extends XmiClassDiagramAbstract implements IXmi
 		if (link.getType().getDecor2() == LinkDecor.AGREGATION) {
 			end1.setAttribute("aggregation", "aggregate");
 		}
+		if(link.getType().getDecor2() == LinkDecor.ARROW && link.getType().getStyle().isDashed()) {
+			end1.setAttribute("aggregation", "dependency");
+		}
+
 		// }
 		end1.appendChild(endparticipant1);
 		connection.appendChild(end1);
@@ -141,6 +145,10 @@ public class XmiClassDiagramStar extends XmiClassDiagramAbstract implements IXmi
 		if (link.getType().getDecor1() == LinkDecor.AGREGATION) {
 			end2.setAttribute("aggregation", "aggregate");
 		}
+		if (link.getType().getDecor1() == LinkDecor.ARROW && link.getType().getStyle().isDashed()) {
+			end2.setAttribute("aggregation", "dependency");
+		}
+
 		// }
 		end2.appendChild(endparticipant2);
 		connection.appendChild(end2);

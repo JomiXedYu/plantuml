@@ -1,0 +1,64 @@
+@startuml
+class net.sourceforge.plantuml.xmi.XmiClassDiagramStar {
+- void addLink(Link)
+- void addExtension(Link,String)
+}
+class net.sourceforge.plantuml.xmi.CucaDiagramXmiMaker {
+- CucaDiagram diagram
+- FileFormat fileFormat
++ {static} String getModel(UmlDiagram)
++ void createFiles(OutputStream)
+}
+class net.sourceforge.plantuml.xmi.XmiClassDiagramStandard {
+}
+abstract class net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract {
+# ClassDiagram classDiagram
+# Document document
+# Element ownedElement
+# Set<IEntity> done
+# String forXMI(String)
+# String forXMI(Display)
++ void transformerXml(OutputStream)
+# Element createEntityNode(IEntity)
+}
+class net.sourceforge.plantuml.xmi.XmiDescriptionDiagram {
+- DescriptionDiagram diagram
+- Document document
+- Element ownedElement
+- void addState(IEntity,Element)
++ {static} String forXMI(String)
++ {static} String forXMI(Display)
+- void addLink(Link)
+- Element createEntityNode(IEntity)
++ void transformerXml(OutputStream)
+}
+class net.sourceforge.plantuml.xmi.XmiStateDiagram {
+- StateDiagram diagram
+- Document document
+- Element ownedElement
+- void addState(IEntity,Element)
++ {static} String forXMI(String)
++ {static} String forXMI(Display)
+- void addLink(Link)
+- Element createEntityNode(IEntity)
++ void transformerXml(OutputStream)
+}
+class net.sourceforge.plantuml.xmi.XmiClassDiagramArgo {
+- void addLink(Link)
+- Element createEntityNodeRef(IEntity)
+}
+interface net.sourceforge.plantuml.xmi.IXmiClassDiagram {
+~ void transformerXml(OutputStream)
+}
+
+
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiClassDiagramStar
+net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract <|-- net.sourceforge.plantuml.xmi.XmiClassDiagramStar
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiClassDiagramStandard
+net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract <|-- net.sourceforge.plantuml.xmi.XmiClassDiagramStandard
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiDescriptionDiagram
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiStateDiagram
+net.sourceforge.plantuml.xmi.IXmiClassDiagram <|.. net.sourceforge.plantuml.xmi.XmiClassDiagramArgo
+net.sourceforge.plantuml.xmi.XmiClassDiagramAbstract <|-- net.sourceforge.plantuml.xmi.XmiClassDiagramArgo
+@enduml
